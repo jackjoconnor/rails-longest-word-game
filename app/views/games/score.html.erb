@@ -1,0 +1,14 @@
+<h1>Countdown Score</h1>
+
+<% if @included %>
+  <% if @english_word %>
+    <p><strong>Congratulations!</strong> Your score is <%= @score %> and <%= @attempt %> is a valid English word!</p>
+  <% else %>
+     <p>Sorry, your score is<strong> 0 </strong> and <%= @attempt %> does not seem to be a valid English word.</p>
+  <% end %>
+<% else %>
+  <p>Sorry, your score is<strong> 0 </strong> and <%= @attempt %> can't be built out of <%= @letters.join(", ") %></p>
+<% end %>
+
+<%= link_to "Play again", new_path %>
+

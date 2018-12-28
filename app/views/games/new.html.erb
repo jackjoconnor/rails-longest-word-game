@@ -1,0 +1,24 @@
+<h1>Let's play Countdown!</h1>
+
+<ul class="letters">
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<p class="form-prefix">
+ <strong> What is the longest word you can think of? </strong> 
+</p>
+
+<form action="/score" method="POST" class="form-inline">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <%= hidden_field_tag :start_time, @start_time %>
+  <%= hidden_field_tag :letters, @letters %>
+  <div class="form-group mb-2 mr-sm-2">
+    <input type="text" name="attempt" class="form-control">
+  </div>
+  <button type="submit" value="Ask a question" class="btn btn-primary mb-2">Play</button>
+</form>
+
+
+
